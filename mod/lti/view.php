@@ -161,7 +161,11 @@ if (($launchcontainer == LTI_LAUNCH_CONTAINER_WINDOW) &&
     // Request the launch content with an iframe tag.
     $attributes = [];
     $attributes['id'] = "contentframe";
-    $attributes['height'] = '600px';
+    // Modificación: Se aumenta atributo height a 800px
+    // Autor: Anibal Carmona Rodriguez (acarmona@academiajudicial.cl)
+    // Fecha: 17/03/2022
+    // Justificación: Aumentar el tamaño del iframe para mejor navegación por contenido  (Integración Zoom a través LTI Pro).
+    $attributes['height'] = '800px'; // Por defecto: 600px
     $attributes['width'] = '100%';
     $attributes['src'] = 'launch.php?id=' . $cm->id . '&triggerview=0';
     $attributes['allow'] = "microphone $ltiallow; " .
@@ -199,8 +203,12 @@ if (($launchcontainer == LTI_LAUNCH_CONTAINER_WINDOW) &&
         //]]
         </script>
 ';
-
-    echo $resize;
+    // Modificación: Se comenta $resize
+    // Autor: Anibal Carmona Rodriguez (acarmona@academiajudicial.cl)
+    // Fecha: 17/03/2022
+    // Justificación: El iframe reduce su tamaño en pantallas pequeñas y no es posible navegar en el contenido (Integración Zoom a través LTI Pro).
+    
+    // echo $resize;
 }
 
 // Finish the page.
